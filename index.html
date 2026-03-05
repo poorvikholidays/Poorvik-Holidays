@@ -8,14 +8,56 @@
 <title>Poorvik Holidays | Bengaluru Vehicle Rentals</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 
 <style>
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
 
-body{background:#f4f6fb;color:#222}
+body{
+background:linear-gradient(#87CEEB,#f4f6fb);
+color:#222;
+overflow-x:hidden;
+}
+
+/* CLOUDS */
+
+.cloud{
+position:fixed;
+font-size:40px;
+opacity:0.9;
+animation:cloudMove linear infinite;
+}
+
+.cloud1{top:80px;left:-100px;animation-duration:60s;}
+.cloud2{top:200px;left:-200px;animation-duration:80s;}
+.cloud3{top:320px;left:-150px;animation-duration:70s;}
+
+@keyframes cloudMove{
+0%{transform:translateX(0)}
+100%{transform:translateX(120vw)}
+}
+
+/* BIRDS */
+
+.birds{
+position:absolute;
+top:120px;
+font-size:28px;
+animation:fly 18s linear infinite;
+}
+
+@keyframes fly{
+0%{transform:translateX(-200px)}
+100%{transform:translateX(120vw)}
+}
+
+/* HEADER */
 
 header{
 position:fixed;
@@ -30,30 +72,47 @@ box-shadow:0 4px 15px rgba(0,0,0,0.08);
 z-index:1000;
 }
 
-header h1{color:#003366}
-
-nav a{
-margin-left:20px;
-text-decoration:none;
-color:#333;
+header h1{
+color:#003366;
 }
+
+/* HERO */
 
 .hero{
 height:100vh;
-background:
-linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-url("https://images.unsplash.com/photo-1504608524841-42fe6f032b4b");
-background-size:cover;
-background-position:center;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
 color:white;
+background:
+linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+url("https://images.unsplash.com/photo-1504608524841-42fe6f032b4b");
+background-size:cover;
+background-position:center;
 }
 
-.hero h2{font-size:48px;margin-bottom:20px}
+.hero h2{
+font-size:48px;
+margin-bottom:10px;
+}
+
+/* CARTOON VEHICLES */
+
+.vehicles{
+font-size:40px;
+margin-top:10px;
+animation:drive 6s linear infinite;
+}
+
+@keyframes drive{
+0%{transform:translateX(-30px)}
+50%{transform:translateX(30px)}
+100%{transform:translateX(-30px)}
+}
+
+/* BUTTONS */
 
 .btn{
 padding:12px 24px;
@@ -61,17 +120,40 @@ border:none;
 border-radius:30px;
 cursor:pointer;
 margin:8px;
+transition:0.3s;
 }
 
-.btn-primary{background:#ff6600;color:white}
-.btn-secondary{background:#25D366;color:white}
-.btn-location{background:#003366;color:white}
+.btn:hover{
+transform:translateY(-4px) scale(1.05);
+}
 
-section{padding:90px 10%;text-align:center}
+.btn-primary{
+background:#ff6600;
+color:white;
+}
 
-.contact{background:#003366;color:white}
+.btn-secondary{
+background:#25D366;
+color:white;
+}
 
-form{max-width:500px;margin:auto;margin-top:30px}
+/* SECTION */
+
+section{
+padding:90px 10%;
+text-align:center;
+}
+
+.contact{
+background:#003366;
+color:white;
+}
+
+form{
+max-width:520px;
+margin:auto;
+margin-top:20px;
+}
 
 input,textarea,select{
 width:100%;
@@ -81,13 +163,27 @@ border-radius:8px;
 border:none;
 }
 
-#map{
-height:320px;
+#locateBtn{
+width:100%;
+padding:14px;
+background:#ff6600;
+color:white;
+border:none;
 border-radius:10px;
-margin-top:10px;
+font-size:16px;
+cursor:pointer;
+margin-bottom:10px;
 }
 
-.success{display:none;color:#00ff9c}
+#map{
+height:100px;
+border-radius:12px;
+}
+
+.success{
+display:none;
+color:#00ff9c;
+}
 
 footer{
 background:#111;
@@ -101,24 +197,37 @@ text-align:center;
 
 <body>
 
+<!-- MOVING CLOUDS -->
+
+<div class="cloud cloud1">☁️</div>
+<div class="cloud cloud2">☁️</div>
+<div class="cloud cloud3">☁️</div>
+
 <header>
 <h1>Poorvik Holidays</h1>
-<nav>
-<a href="#contact">Book</a>
-</nav>
 </header>
 
 <div class="hero">
 
 <h2>Comfortable Vehicle Rentals</h2>
-<p>Car • Bus • Tempo Traveller • Mini Bus</p>
 
-<a href="tel:7760767875"><button class="btn btn-primary">Call Now</button></a>
-<a href="https://wa.me/917760767875"><button class="btn btn-secondary">WhatsApp</button></a>
+<div class="vehicles">
+🚗 🚐 🚌 🚍
+</div>
+
+<div class="birds">🐦 🐦 🐦</div>
+
+<a href="tel:7760767875">
+<button class="btn btn-primary">Call Now</button>
+</a>
+
+<a href="https://wa.me/917760767875">
+<button class="btn btn-secondary">WhatsApp Booking</button>
+</a>
 
 </div>
 
-<section id="contact" class="contact">
+<section class="contact">
 
 <h2>Book Your Ride</h2>
 
@@ -134,8 +243,8 @@ text-align:center;
 placeholder="Pickup location will appear here"
 readonly required>
 
-<button type="button" class="btn btn-location" onclick="getLocation()">
-Use My Current Location
+<button type="button" id="locateBtn" onclick="getLocation()">
+📍 Use Current Location
 </button>
 
 <div id="map"></div>
@@ -176,8 +285,6 @@ maxZoom:19
 
 let marker;
 
-/* Reverse geocode to get address */
-
 function getAddress(lat,lng){
 
 fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`)
@@ -186,29 +293,11 @@ fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${
 
 document.getElementById("pickup").value = data.display_name;
 
-document.getElementById("coordinates").value =
-lat+","+lng;
+document.getElementById("coordinates").value = lat+","+lng;
 
 });
 
 }
-
-/* Click map like Uber */
-
-map.on("click",function(e){
-
-const lat = e.latlng.lat;
-const lng = e.latlng.lng;
-
-if(marker){map.removeLayer(marker)}
-
-marker = L.marker([lat,lng]).addTo(map);
-
-getAddress(lat,lng);
-
-});
-
-/* Use current GPS location */
 
 function getLocation(){
 
@@ -233,7 +322,22 @@ getAddress(lat,lng);
 
 }
 
-/* Formspree */
+map.on("click",function(e){
+
+const lat = e.latlng.lat;
+const lng = e.latlng.lng;
+
+if(marker){map.removeLayer(marker)}
+
+marker = L.marker([lat,lng]).addTo(map);
+
+getAddress(lat,lng);
+
+});
+
+window.onload = function(){
+getLocation();
+}
 
 const form=document.getElementById("form");
 
