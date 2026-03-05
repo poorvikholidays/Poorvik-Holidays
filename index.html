@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Poorvik Holidays | Bengaluru Vehicle Rentals</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -118,7 +121,7 @@ background:#003366;
 color:white;
 }
 
-input,textarea{
+input,textarea,select{
 width:100%;
 padding:12px;
 margin:10px 0;
@@ -143,34 +146,51 @@ text-align:center;
 .hero h2{
 font-size:30px;
 }
+
 header{
 padding:15px 20px;
 }
 }
+
 </style>
+
 </head>
 
 <body>
 
 <header>
+
 <h1>Poorvik Holidays</h1>
+
 <nav>
 <a href="#services">Services</a>
 <a href="#about">About</a>
 <a href="#contact">Contact</a>
 </nav>
+
 </header>
 
+
 <div class="hero">
+
 <h2>Comfortable & Reliable Vehicle Rentals</h2>
+
 <p>Car | Bus | TT | Mini Bus – A/C & Non A/C Available in Bengaluru</p>
 
 <div>
-<a href="tel:7760767875"><button class="btn btn-primary">Call Now</button></a>
-<a href="https://wa.me/917760767875"><button class="btn btn-secondary">WhatsApp Booking</button></a>
+
+<a href="tel:7760767875">
+<button class="btn btn-primary">Call Now</button>
+</a>
+
+<a href="https://wa.me/917760767875">
+<button class="btn btn-secondary">WhatsApp Booking</button>
+</a>
+
 </div>
 
 </div>
+
 
 <section id="services">
 
@@ -202,17 +222,22 @@ padding:15px 20px;
 
 </section>
 
+
 <section id="about">
 
 <h2>About Poorvik Holidays</h2>
 
 <p>
+
 Based in Bengaluru, Poorvik Holidays provides trusted and well-maintained 
 A/C and Non A/C vehicles for tours, corporate trips, and family travel.
+
 We focus on safety, comfort, and customer satisfaction.
+
 </p>
 
 </section>
+
 
 <section id="contact" class="contact">
 
@@ -226,7 +251,21 @@ We focus on safety, comfort, and customer satisfaction.
 
 <input type="tel" name="phone" placeholder="Phone Number" required>
 
-<input type="date" name="plan_date" required>
+<input type="date" name="travel_date" required>
+
+<input type="text" name="pickup_location" placeholder="Pickup Location">
+
+<input type="number" name="passengers" placeholder="Number of Passengers">
+
+<select name="vehicle_type">
+
+<option value="">Select Vehicle Type</option>
+<option>Car</option>
+<option>Bus</option>
+<option>Tempo Traveller</option>
+<option>Mini Bus</option>
+
+</select>
 
 <textarea name="message" rows="4" placeholder="Travel Details"></textarea>
 
@@ -238,11 +277,13 @@ We focus on safety, comfort, and customer satisfaction.
 
 </section>
 
+
 <footer>
 
 © 2026 Poorvik Holidays | Bengaluru
 
 </footer>
+
 
 <script>
 
@@ -254,7 +295,7 @@ e.preventDefault();
 
 const data = new FormData(form);
 
-await fetch("https://formspree.io/f/xojkaegp", {
+await fetch("https://formspree.io/f/xojkaegp",{
 method:"POST",
 body:data,
 headers:{
@@ -269,6 +310,7 @@ form.reset();
 });
 
 </script>
+
 
 </body>
 </html>
