@@ -7,50 +7,42 @@
 
 <title>Poorvik Holidays | Bengaluru Vehicle Rentals</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
 
-body{
-background:#f8f9fa;
-color:#222;
-}
+body{background:#f4f6fb;color:#222}
 
 header{
 position:fixed;
+top:0;
 width:100%;
 background:white;
-padding:15px 50px;
+padding:15px 40px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-box-shadow:0 2px 10px rgba(0,0,0,0.05);
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
 z-index:1000;
 }
 
-header h1{
-color:#003366;
-font-size:24px;
-}
+header h1{color:#003366}
 
 nav a{
 margin-left:20px;
 text-decoration:none;
 color:#333;
-font-weight:500;
 }
 
 .hero{
 height:100vh;
-background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-url('https://images.unsplash.com/photo-1504608524841-42fe6f032b4b');
+background:
+linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+url("https://images.unsplash.com/photo-1504608524841-42fe6f032b4b");
 background-size:cover;
 background-position:center;
 display:flex;
@@ -59,67 +51,27 @@ justify-content:center;
 align-items:center;
 text-align:center;
 color:white;
-padding:20px;
 }
 
-.hero h2{
-font-size:48px;
-margin-bottom:20px;
-}
-
-.hero p{
-font-size:18px;
-margin-bottom:30px;
-}
+.hero h2{font-size:48px;margin-bottom:20px}
 
 .btn{
-padding:12px 25px;
-margin:10px;
+padding:12px 24px;
 border:none;
 border-radius:30px;
 cursor:pointer;
-font-size:16px;
-font-weight:500;
+margin:8px;
 }
 
-.btn-primary{
-background:#ff6600;
-color:white;
-}
+.btn-primary{background:#ff6600;color:white}
+.btn-secondary{background:#25D366;color:white}
+.btn-location{background:#003366;color:white}
 
-.btn-secondary{
-background:#25D366;
-color:white;
-}
+section{padding:90px 10%;text-align:center}
 
-section{
-padding:80px 50px;
-text-align:center;
-}
+.contact{background:#003366;color:white}
 
-.services{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-margin-top:40px;
-}
-
-.card{
-background:white;
-padding:30px;
-border-radius:15px;
-box-shadow:0 5px 20px rgba(0,0,0,0.05);
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-}
-
-.contact{
-background:#003366;
-color:white;
-}
+form{max-width:500px;margin:auto;margin-top:30px}
 
 input,textarea,select{
 width:100%;
@@ -129,11 +81,13 @@ border-radius:8px;
 border:none;
 }
 
-.success{
-display:none;
-color:#0f0;
+#map{
+height:320px;
+border-radius:10px;
 margin-top:10px;
 }
+
+.success{display:none;color:#00ff9c}
 
 footer{
 background:#111;
@@ -142,108 +96,31 @@ padding:20px;
 text-align:center;
 }
 
-@media(max-width:768px){
-.hero h2{
-font-size:30px;
-}
-
-header{
-padding:15px 20px;
-}
-}
-
 </style>
-
 </head>
 
 <body>
 
 <header>
-
 <h1>Poorvik Holidays</h1>
-
 <nav>
-<a href="#services">Services</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
+<a href="#contact">Book</a>
 </nav>
-
 </header>
-
 
 <div class="hero">
 
-<h2>Comfortable & Reliable Vehicle Rentals</h2>
+<h2>Comfortable Vehicle Rentals</h2>
+<p>Car • Bus • Tempo Traveller • Mini Bus</p>
 
-<p>Car | Bus | TT | Mini Bus – A/C & Non A/C Available in Bengaluru</p>
-
-<div>
-
-<a href="tel:7760767875">
-<button class="btn btn-primary">Call Now</button>
-</a>
-
-<a href="https://wa.me/917760767875">
-<button class="btn btn-secondary">WhatsApp Booking</button>
-</a>
+<a href="tel:7760767875"><button class="btn btn-primary">Call Now</button></a>
+<a href="https://wa.me/917760767875"><button class="btn btn-secondary">WhatsApp</button></a>
 
 </div>
-
-</div>
-
-
-<section id="services">
-
-<h2>Our Services</h2>
-
-<div class="services">
-
-<div class="card">
-<h3>Car Rental</h3>
-<p>Perfect for local and outstation trips.</p>
-</div>
-
-<div class="card">
-<h3>Bus Rental</h3>
-<p>Luxury and standard buses for tours & events.</p>
-</div>
-
-<div class="card">
-<h3>Tempo Traveller (TT)</h3>
-<p>Best option for family & group travel.</p>
-</div>
-
-<div class="card">
-<h3>Mini Bus</h3>
-<p>Affordable option for medium-sized groups.</p>
-</div>
-
-</div>
-
-</section>
-
-
-<section id="about">
-
-<h2>About Poorvik Holidays</h2>
-
-<p>
-
-Based in Bengaluru, Poorvik Holidays provides trusted and well-maintained 
-A/C and Non A/C vehicles for tours, corporate trips, and family travel.
-
-We focus on safety, comfort, and customer satisfaction.
-
-</p>
-
-</section>
-
 
 <section id="contact" class="contact">
 
-<h2>Book Your Ride Today</h2>
-
-<p>📞 7760767875 | 7760705367</p>
+<h2>Book Your Ride</h2>
 
 <form id="form">
 
@@ -251,56 +128,125 @@ We focus on safety, comfort, and customer satisfaction.
 
 <input type="tel" name="phone" placeholder="Phone Number" required>
 
-<input type="date" name="travel_date" placeholder="Select Departure Date" required>
+<input type="date" name="travel_date" required>
 
-<input type="text" name="pickup_location" placeholder="Pickup Location">
+<input type="text" id="pickup" name="pickup_location"
+placeholder="Pickup location will appear here"
+readonly required>
 
-<input type="number" name="passengers" placeholder="Number of Passengers">
+<button type="button" class="btn btn-location" onclick="getLocation()">
+Use My Current Location
+</button>
+
+<div id="map"></div>
+
+<input type="hidden" id="coordinates" name="coordinates">
 
 <select name="vehicle_type">
-
-<option value="">Select Vehicle Type</option>
+<option value="">Vehicle Type</option>
 <option>Car</option>
 <option>Bus</option>
 <option>Tempo Traveller</option>
 <option>Mini Bus</option>
-
 </select>
 
-<textarea name="message" rows="4" placeholder="Travel Details"></textarea>
+<textarea name="message" placeholder="Travel Details"></textarea>
 
 <button class="btn btn-primary" type="submit">Send Enquiry</button>
 
-<p class="success" id="success">✅ Enquiry sent successfully!</p>
+<p class="success" id="success">✅ Enquiry sent successfully</p>
 
 </form>
 
 </section>
 
-
 <footer>
-
 © 2026 Poorvik Holidays | Bengaluru
-
 </footer>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
 
-const form = document.getElementById("form");
+const map = L.map('map').setView([12.9716,77.5946],13);
 
-form.addEventListener("submit", async function(e){
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+maxZoom:19
+}).addTo(map);
+
+let marker;
+
+/* Reverse geocode to get address */
+
+function getAddress(lat,lng){
+
+fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`)
+.then(res=>res.json())
+.then(data=>{
+
+document.getElementById("pickup").value = data.display_name;
+
+document.getElementById("coordinates").value =
+lat+","+lng;
+
+});
+
+}
+
+/* Click map like Uber */
+
+map.on("click",function(e){
+
+const lat = e.latlng.lat;
+const lng = e.latlng.lng;
+
+if(marker){map.removeLayer(marker)}
+
+marker = L.marker([lat,lng]).addTo(map);
+
+getAddress(lat,lng);
+
+});
+
+/* Use current GPS location */
+
+function getLocation(){
+
+if(navigator.geolocation){
+
+navigator.geolocation.getCurrentPosition(function(pos){
+
+const lat = pos.coords.latitude;
+const lng = pos.coords.longitude;
+
+map.setView([lat,lng],16);
+
+if(marker){map.removeLayer(marker)}
+
+marker = L.marker([lat,lng]).addTo(map);
+
+getAddress(lat,lng);
+
+});
+
+}
+
+}
+
+/* Formspree */
+
+const form=document.getElementById("form");
+
+form.addEventListener("submit",async function(e){
 
 e.preventDefault();
 
-const data = new FormData(form);
+const data=new FormData(form);
 
 await fetch("https://formspree.io/f/xojkaegp",{
 method:"POST",
 body:data,
-headers:{
-'Accept':'application/json'
-}
+headers:{'Accept':'application/json'}
 });
 
 document.getElementById("success").style.display="block";
@@ -310,7 +256,6 @@ form.reset();
 });
 
 </script>
-
 
 </body>
 </html>
